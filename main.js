@@ -2436,10 +2436,6 @@ function handleKeyChange(event, isDown) {
     return;
   }
 
-  // R — быстро пересобрать мир.
-  if (isDown && !event.repeat && event.code === 'KeyR' && !world.isBuilding) {
-    buildWorld();
-  }
 }
 
 
