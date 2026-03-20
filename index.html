@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <link rel="icon" href="data:,">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>С днём рождения, Арина!</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="hud" class="hud hidden" hidden>
+      <div class="hud-column hud-right">
+        <div id="stats" class="panel stats"></div>
+        <div id="inventoryPanel" class="panel inventory-panel">
+          <h2>Инвентарь</h2>
+          <div id="inventoryContent" class="inventory-content">Пока пусто</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="overlay" class="overlay overlay-mode-menu">
+      <div id="overlayCard" class="card overlay-card">
+        <div id="menuView" class="overlay-view overlay-view-menu">
+          <h2 id="overlayTitle">ТЫ ВЕСЬ В ОДУВАНЧИКАХ!</h2>
+          <p id="overlayText">
+            Стоило тебе отвернуться, и Арина тут же покрыла тебя плотным слоем плодов одуванчика. 
+            Пришло время ответить на эту агрессию и восстановить справедливость!
+          </p>
+
+          <div class="controls-grid">
+            <label class="control-field">
+              <span>Seed мира</span>
+              <input id="seedInput" type="number" step="1" />
+            </label>
+
+            <label class="control-field control-field-select">
+              <span>Качество рендера</span>
+              <select id="renderQualitySelect">
+                <option value="native">Нативное</option>
+                <option value="hd">HD (1024 × 576)</option>
+                <option value="low">Пониженное (684 × 384)</option>
+              </select>
+              <small>Снижает внутреннее разрешение кадра для повышения производительности.
+                    Без GPU рекомендуется сначала поставить пониженное, а затем повышать при отсутствии задержек</small>
+            </label>
+
+            <div class="meta-box">
+              <div><span class="meta-key">WASD</span><span>Движение</span></div>
+              <div><span class="meta-key">E</span><span id="modelName">Взять одуванчик</span></div>
+              <div><span class="meta-key">ЛКМ</span><span>Подуть на одуванчик</span></div>
+              <div><span class="meta-key">Esc</span><span>пауза</span></div>
+            </div>
+
+          </div>
+
+          <div class="button-row">
+            <button id="startButton">Старт / продолжить</button>
+            <button id="rebuildButton" class="secondary">Пересобрать мир</button>
+            <button id="newSeedButton" class="secondary">Новый seed</button>
+          </div>
+
+          <p id="buildStatus" class="status-line">Подготовка…</p>
+        </div>
+
+        <div id="pauseView" class="overlay-view overlay-view-pause hidden" hidden>
+          <div class="pause-frame">
+            <h2 class="pause-heading">Пауза</h2>
+            <p class="pause-text">Игра остановлена. Можно спокойно продолжить раунд.</p>
+            <div class="pause-button-row">
+              <button id="resumeButton">Продолжить игру</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="outcomeView" class="overlay-view overlay-view-outcome hidden" aria-live="polite" hidden>
+          <div class="outcome-frame">
+            <h1 id="outcomeHeading" class="outcome-heading">СПРАВЕДЛИВОСТЬ<br />ВОСТОРЖЕСТВОВАЛА</h1>
+
+            <div class="outcome-grid">
+              <div id="outcomeBody" class="outcome-body">
+                <p>Текст победы.</p>
+              </div>
+            </div>
+            <div id="outcomeSignature" class="outcome-signature">Подпись</div>
+
+            <div id="outcomeButtonRow" class="outcome-button-row outcome-button-row-left">
+              <button id="outcomeActionButton">Новая игра</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="combatHud" class="combat-hud hidden" hidden>
+      <div class="hp-card player-hp-card">
+        <div id="playerHpText" class="hp-text">Игрок HP: 100 / 100</div>
+        <div class="hp-bar"><div id="playerHpFill" class="hp-fill player"></div></div>
+      </div>
+      <div class="hp-card npc-hp-card">
+        <div id="npcHpText" class="hp-text">NPC HP: —</div>
+        <div class="hp-bar"><div id="npcHpFill" class="hp-fill npc"></div></div>
+      </div>
+    </div>
+
+    <div id="windshearAlarm" class="windshear-alarm hidden" hidden>Сдвиг пуха ветром</div>
+    <div id="interactionHint" class="interaction-hint hidden" hidden>Подойдите к предмету, чтобы подобрать его</div>
+    <div id="crosshair" class="crosshair hidden" hidden></div>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>
