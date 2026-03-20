@@ -858,7 +858,6 @@ function getOutcomeOverlayContent(outcome, fallbackMessage = '') {
     bodyHtml: `
       <p class="lead">Арина вновь одержала верх.</p>
       <p>Дуэль проиграна. Но настоящий ценитель одуванчиков не сдается. Возьми реванш - но на той же карте</p>
-      <p class="muted">${fallbackMessage || 'Поражение зафиксировано. Позже сюда можно добавить отдельную кат-сцену или экран с развёрнутым текстом.'}</p>
     `,
     signatureHtml: '',
     actionLabel: 'Реванш',
