@@ -2767,7 +2767,7 @@ function applyPlayerCloudDamage(delta) {
   if (damageThisFrame > 0) {
     world.playerHp = Math.max(0, world.playerHp - damageThisFrame);
     if (world.playerHp <= 0) {
-      endGame('defeat', 'Игрок оказался полностью засыпан вражеским пухом. Текущий seed сохранён: можно немедленно взять реванш на той же карте.');
+      endGame('defeat', '');
     }
   }
 }
